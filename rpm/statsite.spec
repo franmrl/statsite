@@ -2,7 +2,7 @@
 
 Name:		statsite
 Version:	0.8.0
-Release:	1%{?dist}
+Release:	%(git describe --long --tags | cut -d- -f2)
 Summary:	A C implementation of statsd.
 Group:		Applications
 License:	See the LICENSE file.
@@ -48,7 +48,7 @@ install -m 644 rpm/statsite.tmpfiles.conf $RPM_BUILD_ROOT/etc/tmpfiles.d/statsit
 install -m 755 rpm/statsite.initscript $RPM_BUILD_ROOT/etc/init.d/statsite
 %endif
 
-install -m 755 src/statsite $RPM_BUILD_ROOT/usr/sbin
+install -m 755 statsite $RPM_BUILD_ROOT/usr/sbin
 install -m 644 rpm/statsite.conf.example $RPM_BUILD_ROOT/etc/%{name}/statsite.conf
 cp -a sinks $RPM_BUILD_ROOT/usr/libexec/%{name}
 
