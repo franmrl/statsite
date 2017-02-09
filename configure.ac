@@ -93,3 +93,4 @@ AC_SUBST(LINK_TO_RT)
 LT_INIT
 
 AC_OUTPUT(Makefile man/Makefile)
+
